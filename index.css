@@ -5,47 +5,77 @@
 
 :root {
     --primary-bg-color: rgba(233, 171, 88, 0.5);
-    --border-radius: 5px;
+    --border-radius: 10px;
     --border: 2px solid rgb(233, 171, 88);
     --color: #d9480f;
 }
 
+img {
+    width: 90%;
+}
+
+body {
+    min-height: 100vh;
+    /* hauteur = toute la fenêtre */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    /* centre horizontalement */
+    align-items: center;
+    /* centre verticalement */
+}
+
+p {
+    text-align: center;
+}
+
 .wrapper>div {
-    border: var(--border);
     border-radius: var(--border-radius);
     background-color: var(--primary-bg-color);
     color: var(--color);
 }
 
 .wrapper {
+    width: auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 250px);
     grid-auto-rows: 10px;
-    width: 80%;
-    margin: 0 auto;
-    grid-gap: 30px;
+    background: #fff;
+    gap: 20px;
+    /* ← espace entre les items (fait apparaître le faux gap) */
 }
 
 .one,
 .six {
     grid-column: 1 / 1;
-    grid-row: span 10;
+    grid-row: span 14;
 }
 
 .two {
     /* La ligne commence au début de la colonne 2 et finit à la fin de la colonne 3*/
     grid-column: 2 / 4;
-    grid-row: span 8;
+    grid-row: span 10;
 }
 
 .three {
-    grid-row: span 14;
+    /* La ligne commence au début de la colonne 4 et finit à la fin de la colonne 4*/
+    grid-column: 4 / 5;
+    grid-row: span 19;
+}
+
+.four {
+    grid-column: 2 / 3;
+}
+
+.five {
+    grid-column: 3 / 4;
 }
 
 .four,
 .five,
-.seven {
-    grid-row: span 6;
+.seven,
+.height {
+    grid-row: span 9;
 }
 
 .seven {
@@ -54,5 +84,4 @@
 
 .height {
     grid-column: 3 / 5;
-    grid-row: span 6;
 }

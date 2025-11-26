@@ -29,7 +29,7 @@
 .one,
 .six {
     grid-column: 1 / 1;
-    grid-row: span 11;
+    grid-row: span 10;
 }
 
 .two {
@@ -39,13 +39,13 @@
 }
 
 .three {
-    grid-row: span 15;
+    grid-row: span 14;
 }
 
 .four,
 .five,
 .seven {
-    grid-row: span 7;
+    grid-row: span 6;
 }
 
 .seven {
@@ -54,5 +54,5 @@
 
 .height {
     grid-column: 3 / 5;
-    grid-row: span 7;
+    grid-row: span 6;
 }

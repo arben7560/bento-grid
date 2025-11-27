@@ -11,7 +11,12 @@ img {
 }
 
  :root {
-    --primary-bg-color: rgba(233, 171, 88, 0.5);
+    --primary-bg-yellow: hsl(39, 100%, 71%);
+    --primary-bg-yellow-light: hsl(31, 66%, 93%);
+    --primary-bg-purple: hsl(256, 67%, 59%);
+    --primary-bg-purple-light: hsl(254, 88%, 90%);
+    --primary-bg-white: hsl(0, 0%, 100%);
+    --primary-g-black: hsl(0, 0%, 7%);
     --border-radius: 10px;
     --border: 2px solid rgb(233, 171, 88);
     --color: #d9480f;
@@ -32,7 +37,6 @@ body {
 
 .wrapper>div {
     border-radius: var(--border-radius);
-    background-color: var(--primary-bg-color);
 }
 
 .wrapper div {
@@ -51,6 +55,10 @@ body {
     background: #fff;
     gap: 20px;
     /* ← espace entre les items (fait apparaître le faux gap) */
+}
+
+.one {
+    background-color: var(--primary-bg-yellow-light);
 }
 
 .one,
@@ -103,6 +111,11 @@ h3 {
     letter-spacing: -1px;
 }
 
+.two,
+.height {
+    background-color: var(--primary-bg-purple);
+}
+
 .two {
     /* La ligne commence au début de la colonne 2 et finit à la fin de la colonne 3*/
     grid-column: 2 / 4;
@@ -113,6 +126,7 @@ h3 {
     /* La ligne commence au début de la colonne 4 et finit à la fin de la colonne 4*/
     grid-column: 4 / 5;
     grid-row: span 21;
+    background-color: var(--primary-bg-purple-light);
 }
 
 .four {
@@ -121,6 +135,16 @@ h3 {
 
 .five {
     grid-column: 3 / 4;
+}
+
+.five,
+.seven {
+    background-color: var(--primary-bg-white);
+}
+
+.five,
+.six {
+    background-color: var(--primary-bg-yellow);
 }
 
 .four,

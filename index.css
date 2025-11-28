@@ -3,20 +3,13 @@
     margin: 0;
 }
 
-
-/* TEMPORAIRE */
-
-img {
-    width: 75%;
-}
-
  :root {
     --primary-bg-yellow: hsl(39, 100%, 71%);
     --primary-bg-yellow-light: hsl(31, 66%, 93%);
     --primary-bg-purple: hsl(256, 67%, 59%);
     --primary-bg-purple-light: hsl(254, 88%, 90%);
     --primary-bg-white: hsl(0, 0%, 100%);
-    --primary-g-black: hsl(0, 0%, 7%);
+    --primary-bg-black: hsl(0, 0%, 7%);
     --primary-body-color: #f5f5f5;
     --border-radius: 10px;
     --border: 2px solid rgb(233, 171, 88);
@@ -33,7 +26,6 @@ body {
     align-items: center;
     /* centre verticalement */
     font-family: 'DM Sans', sans-serif;
-    font-size: 18px;
     background-color: var(--primary-body-color);
 }
 
@@ -44,8 +36,69 @@ body {
 .wrapper div {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /* centre verticalement */
+}
+
+.wrapper div:not(.special),
+.wrapper div:not(.three),
+.wrapper div:not(.seven),
+.wrapper div:not(.height) {
+    padding: 25px 60px 20px 20px;
+}
+
+.wrapper div.special {
+    padding: inherit;
+}
+
+.wrapper div.seven,
+.wrapper div.height {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.wrapper div.three {
+    padding-left: 25px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.three img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: -200px;
+    width: 220%;
+}
+
+.height img {
+    width: 45%;
+}
+
+.four {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.four img {
+    width: 170%;
+}
+
+.five {
+    position: relative;
+    overflow: hidden;
+}
+
+.five img {
+    width: 210px;
+    /* largeur de base 250px, img = 210px (20px x2 (padding) pour centrer au milieu) */
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrapper div:last-child {
+    flex-direction: inherit;
 }
 
 .wrapper {
@@ -56,6 +109,57 @@ body {
     grid-auto-rows: 10px;
     gap: 20px;
     /* ← espace entre les items (fait apparaître le faux gap) */
+}
+
+
+/* LINE-HEIGHT*/
+
+.wrapper div p:not(.seven) {
+    line-height: 0.9em;
+}
+
+
+/* FONT WEIGHT */
+
+.wrapper div p:first-child,
+.wrapper div.four p {
+    font-weight: 500;
+}
+
+
+/* FONT SIZE, LETTER SPACING */
+
+.one p,
+.six p,
+.height p {
+    font-size: 40px;
+}
+
+.two p,
+.seven p {
+    font-size: 55px;
+}
+
+.three p:first-child,
+.four p,
+.five p {
+    font-size: 30px;
+    letter-spacing: -2px;
+}
+
+.height p {
+    letter-spacing: -2px;
+}
+
+.two p:last-child,
+.three p:last-child,
+.seven p:last-child {
+    font-size: 18px;
+}
+
+.one p,
+.six p {
+    letter-spacing: -4px;
 }
 
 .one {
@@ -69,21 +173,30 @@ body {
 }
 
 .six {
-    font-size: 40px;
     position: relative;
-    padding: 20px 60px 20px 20px;
-    color: black;
+    color: var(--primary-bg-black);
 }
 
-.six p {
-    letter-spacing: -4px;
-    line-height: 0.9em;
-    text-align: left;
-    font-weight: 500;
+.one p em {
+    color: var(--primary-bg-purple);
+}
+
+.one {
+    color: var(--primary-bg-black);
+    justify-content: center;
+}
+
+.one p {
+    margin-bottom: 20px;
+}
+
+.one img {
+    width: 210px;
 }
 
 .six img {
-    width: 86%;
+    /* largeur du contenur 250px, padding 20px + 25px = 45px. 215px + 45px = 260px (décalage de la fleche) */
+    width: 215px;
     position: absolute;
     left: 20px;
     bottom: 22px;
@@ -91,25 +204,17 @@ body {
 
 .seven {
     /* centre horizontalement */
-    align-items: center;
+    align-items: start;
     /* centre verticalement */
+    justify-content: center;
 }
 
 .seven img {
     width: 75%;
 }
 
-.seven p {
-    font-size: 45px;
-    letter-spacing: -4px;
-}
-
 .seven span {
     margin-bottom: 30px;
-}
-
-h3 {
-    letter-spacing: -1px;
 }
 
 .two,
@@ -121,6 +226,24 @@ h3 {
     /* La ligne commence au début de la colonne 2 et finit à la fin de la colonne 3*/
     grid-column: 2 / 4;
     grid-row: span 12;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-bg-white);
+    padding: 20px 20px 20px 20px;
+}
+
+.two p:first-child {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.yellow {
+    color: var(--primary-bg-yellow);
+}
+
+.two img {
+    width: 40%;
+    margin-bottom: 10px;
 }
 
 .three {
@@ -161,4 +284,6 @@ h3 {
 
 .height {
     grid-column: 3 / 5;
+    color: var(--primary-bg-white);
+    align-items: center;
 }

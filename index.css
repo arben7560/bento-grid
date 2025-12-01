@@ -16,118 +16,167 @@
     --color: #d9480f;
 }
 
+
+/* BODY LAYOUT */
+
 body {
     min-height: 100vh;
-    /* hauteur = toute la fenêtre */
     margin: 0;
-    display: flex;
-    justify-content: center;
-    /* centre horizontalement */
-    align-items: center;
-    /* centre verticalement */
     font-family: 'DM Sans', sans-serif;
     background-color: var(--primary-body-color);
-}
-
-.wrapper>div {
-    border-radius: var(--border-radius);
-}
-
-.wrapper div {
     display: flex;
-    flex-direction: column;
-}
-
-.wrapper div:not(.special),
-.wrapper div:not(.three),
-.wrapper div:not(.seven),
-.wrapper div:not(.height) {
-    padding: 25px 60px 20px 20px;
-}
-
-.wrapper div.special {
-    padding: inherit;
-}
-
-.wrapper div.seven,
-.wrapper div.height {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.wrapper div.three {
-    padding-left: 25px;
+    align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
 }
 
-.three img {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-right: -200px;
-    width: 220%;
-}
 
-.height img {
-    width: 45%;
-}
-
-.four {
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    overflow: hidden;
-}
-
-.four img {
-    width: 170%;
-}
-
-.five {
-    position: relative;
-    overflow: hidden;
-}
-
-.five img {
-    width: 210px;
-    /* largeur de base 250px, img = 210px (20px x2 (padding) pour centrer au milieu) */
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.wrapper div:last-child {
-    flex-direction: inherit;
-}
+/* GRID POSITION*/
 
 .wrapper {
     width: auto;
     max-width: 1440px;
     display: grid;
     grid-template-columns: repeat(4, 250px);
-    grid-auto-rows: 10px;
+    grid-auto-rows: 9px;
     gap: 20px;
     /* ← espace entre les items (fait apparaître le faux gap) */
 }
 
+.four,
+.five,
+.seven,
+.height {
+    grid-row: span 9;
+}
 
-/* LINE-HEIGHT*/
+.two {
+    /* La ligne commence au début de la colonne 2 et finit à la fin de la colonne 3*/
+    grid-column: 2 / 4;
+    grid-row: span 12;
+}
 
-.wrapper div p:not(.seven) {
-    line-height: 0.9em;
+.three {
+    /* La ligne commence au début de la colonne 4 et finit à la fin de la colonne 4*/
+    grid-column: 4 / 5;
+    grid-row: span 21;
+}
+
+.four {
+    grid-column: 2 / 3;
+}
+
+.five {
+    grid-column: 3 / 4;
+}
+
+.seven {
+    grid-column: 2 / 3;
+}
+
+.height {
+    grid-column: 3 / 5;
+}
+
+.one,
+.six {
+    grid-column: 1 / 1;
+    grid-row: span 15;
+}
+
+.three,
+.four,
+.five,
+.six {
+    position: relative;
+    overflow: hidden;
 }
 
 
-/* FONT WEIGHT */
+/* INTERNAL LAYOUT (flex, padding) */
+
+.wrapper>div {
+    display: flex;
+    padding: 32px;
+    border-radius: var(--border-radius);
+}
+
+.wrapper>div:not(.height) {
+    flex-direction: column;
+}
+
+.one,
+.two,
+.three,
+.seven {
+    justify-content: center;
+}
+
+.four {
+    justify-content: space-around;
+}
+
+.six {
+    justify-content: space-between;
+}
+
+.two,
+.height {
+    align-items: center;
+}
+
+
+/* IMAGE RULES */
+
+.one img {
+    width: auto;
+}
+
+.two img {
+    width: 35%;
+    margin-bottom: 10px;
+}
+
+.three img {
+    width: 180%;
+    margin: 30px 0;
+}
+
+.four img {
+    width: 170%;
+}
+
+.five img {
+    width: auto;
+    margin-top: 20px;
+}
+
+.six img {
+    width: auto;
+}
+
+.seven img {
+    width: auto;
+}
+
+.height img {
+    width: 45%;
+}
+
+
+/* TYPOGRAPY*/
+
+.wrapper p {
+    line-height: 0.9em;
+}
+
+.seven p {
+    line-height: normal;
+}
 
 .wrapper div p:first-child,
 .wrapper div.four p {
     font-weight: 500;
 }
-
-
-/* FONT SIZE, LETTER SPACING */
 
 .one p,
 .six p,
@@ -147,10 +196,6 @@ body {
     letter-spacing: -2px;
 }
 
-.height p {
-    letter-spacing: -2px;
-}
-
 .two p:last-child,
 .three p:last-child,
 .seven p:last-child {
@@ -162,59 +207,15 @@ body {
     letter-spacing: -4px;
 }
 
+.height p {
+    letter-spacing: -2px;
+}
+
+
+/* COLOR & BACKGROUND-COLOR*/
+
 .one {
     background-color: var(--primary-bg-yellow-light);
-}
-
-.one,
-.six {
-    grid-column: 1 / 1;
-    grid-row: span 15;
-}
-
-.six {
-    position: relative;
-    color: var(--primary-bg-black);
-}
-
-.one p em {
-    color: var(--primary-bg-purple);
-}
-
-.one {
-    color: var(--primary-bg-black);
-    justify-content: center;
-}
-
-.one p {
-    margin-bottom: 20px;
-}
-
-.one img {
-    width: 210px;
-}
-
-.six img {
-    /* largeur du contenur 250px, padding 20px + 25px = 45px. 215px + 45px = 260px (décalage de la fleche) */
-    width: 215px;
-    position: absolute;
-    left: 20px;
-    bottom: 22px;
-}
-
-.seven {
-    /* centre horizontalement */
-    align-items: start;
-    /* centre verticalement */
-    justify-content: center;
-}
-
-.seven img {
-    width: 75%;
-}
-
-.seven span {
-    margin-bottom: 30px;
 }
 
 .two,
@@ -222,43 +223,8 @@ body {
     background-color: var(--primary-bg-purple);
 }
 
-.two {
-    /* La ligne commence au début de la colonne 2 et finit à la fin de la colonne 3*/
-    grid-column: 2 / 4;
-    grid-row: span 12;
-    justify-content: center;
-    align-items: center;
-    color: var(--primary-bg-white);
-    padding: 20px 20px 20px 20px;
-}
-
-.two p:first-child {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.yellow {
-    color: var(--primary-bg-yellow);
-}
-
-.two img {
-    width: 40%;
-    margin-bottom: 10px;
-}
-
 .three {
-    /* La ligne commence au début de la colonne 4 et finit à la fin de la colonne 4*/
-    grid-column: 4 / 5;
-    grid-row: span 21;
     background-color: var(--primary-bg-purple-light);
-}
-
-.four {
-    grid-column: 2 / 3;
-}
-
-.five {
-    grid-column: 3 / 4;
 }
 
 .four,
@@ -271,19 +237,40 @@ body {
     background-color: var(--primary-bg-yellow);
 }
 
-.four,
-.five,
-.seven,
-.height {
-    grid-row: span 9;
+.six,
+.one {
+    color: var(--primary-bg-black);
 }
 
-.seven {
-    grid-column: 2 / 3;
+.one p em {
+    color: var(--primary-bg-purple);
 }
 
+.two,
 .height {
-    grid-column: 3 / 5;
     color: var(--primary-bg-white);
-    align-items: center;
+}
+
+.yellow {
+    color: var(--primary-bg-yellow);
+}
+
+.one p,
+.two p:first-child {
+    margin-bottom: 20px;
+}
+
+.seven span {
+    margin-bottom: 30px;
+}
+
+.two p:first-child {
+    text-align: center;
+}
+
+@media (max-width:768px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
 }

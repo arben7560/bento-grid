@@ -104,6 +104,9 @@ body {
     flex-direction: column;
 }
 
+
+/* Alignement Vertical différent en fonction des items*/
+
 .one,
 .two,
 .three,
